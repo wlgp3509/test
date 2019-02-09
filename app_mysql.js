@@ -13,8 +13,8 @@ var upload = multer({ storage: _storage })
 var fs = require('fs');
 var mysql = require('mysql');
 var conn = mysql.createConnection({
-  host     : '13.124.33.78:8080'
-  user     : 'ubunbu',
+  host     : ' http://13.124.33.78/',
+  user     : 'root',
   password : '1111',
   database : 'taerin'
 });
