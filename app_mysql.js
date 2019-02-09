@@ -14,7 +14,7 @@ var fs = require('fs');
 var mysql = require('mysql');
 var conn = mysql.createConnection({
   host     : '13.124.33.78:8080'
-  user     : 'root',
+  user     : 'ubunbu',
   password : '1111',
   database : 'taerin'
 });
