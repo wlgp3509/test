@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var config = require('./config.json')
 var _storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
@@ -12,11 +13,12 @@ var _storage = multer.diskStorage({
 var upload = multer({ storage: _storage })
 var fs = require('fs');
 var mysql = require('mysql');
+console.log(config)
 var conn = mysql.createConnection({
-  host     : ' http://13.124.33.78/',
-  user     : 'root',
-  password : '1111',
-  database : 'taerin'
+  host     : config.host,
+  user     : config.user,
+  password : config.password,
+  database : config.database
 });
 conn.connect();
 var app = express();
