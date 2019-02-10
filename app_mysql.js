@@ -1,7 +1,14 @@
+//npm
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+//var forever = require('forever');
+var fs = require('fs');
+var mysql = require('mysql');
 //var config = require('./config.json')
+
+
+//DB, 기타 환경설정
 var _storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
@@ -11,8 +18,6 @@ var _storage = multer.diskStorage({
   }
 })
 var upload = multer({ storage: _storage })
-var fs = require('fs');
-var mysql = require('mysql');
 //console.log(config)
 var conn = mysql.createConnection({
   host     : 'localhost',
@@ -21,6 +26,9 @@ var conn = mysql.createConnection({
   database : 'taerin'
 });
 conn.connect();
+
+
+
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.pretty = true;
