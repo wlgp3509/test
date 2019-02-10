@@ -27,8 +27,6 @@ var conn = mysql.createConnection({
 });
 conn.connect();
 
-
-
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.pretty = true;
