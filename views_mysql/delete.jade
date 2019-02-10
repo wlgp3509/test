@@ -1,16 +1,64 @@
 doctype html
 html
   head
+
     meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous")
+
+    title Node.js 사전과제
+
   body
-    h1
-      a(href='/topic') Node.js 사전과제
-    ul
+    h1 PROGRAPHY 4th::Node.js 사전과제
+    hr
+    div(class="container")
+
+
       each topic in topics
         li
           a(href='/topic/'+topic.id)= topic.title
-    artcle
-      h1= 'Delete? '+topic.title
+
+      table(class="table table-striped")
+        thead
+          tr
+            th 번호
+            th 제목
+            th 내용
+            th 작성자
+        tbody
+          tr
+            if topic
+              td 
+                p= topic.id
+              td 
+                p= topic.title
+              td 
+                p= topic.description
+              td 
+                p= topic.author
+            else
+              td 0
+              td 글목록에서
+              td 원하는 게시글을 선택해주세요
+              td admin
+
+
+        table(class="table table-striped")
+          thead
+              tr
+                th 
+                  a(href='/topic/add')글쓰기
+                if topic
+                  th 
+                    a(href='/topic/'+topic.id+'/edit')수정하기
+                  th 
+                    a(href='/topic/'+topic.id+'/delete')삭제하기
+                  th 
+                    a(href='/topic')메인으로
+                else
+      a= '게시글 "'+topic.title
+      a"을(를) 삭제하시겠습니까?'
       form(action='/topic/'+topic.id+'/delete' method='post')
         p
           input(type='submit' value='YES')

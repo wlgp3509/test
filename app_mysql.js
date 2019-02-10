@@ -146,6 +146,6 @@ app.get(['/topic', '/topic/:id'], function(req, res){
     }
   });
 });
-app.listen(3000, function(){
-  console.log('Connected, 3000 port!');
+app.listen(8080, function(){
+  console.log('Connected, 8080 port!');
 })
